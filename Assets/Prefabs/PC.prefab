@@ -129,4 +129,5 @@ MonoBehaviour:
   moveSpeed: 1000
   jumpKey: 32
   jumpForce: 300
+  snapForce: 3000
   ground: {fileID: 0}

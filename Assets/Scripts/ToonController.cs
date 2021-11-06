@@ -5,6 +5,7 @@ public class ToonController : MonoBehaviour {
     [SerializeField] private float moveSpeed = 1000f;
     [SerializeField] private KeyCode jumpKey = KeyCode.Space;
     [SerializeField] private float jumpForce = 300f;
+    [SerializeField] private float snapForce = 3000f;
     [SerializeField] private GameObject ground;
 
     private float hInput, vInput;
@@ -26,6 +27,10 @@ public class ToonController : MonoBehaviour {
 
         if(Input.GetKeyDown(jumpKey) && isGrounded) {
             Jump();
+        }
+
+        if(toonRigidBody.velocity.y < 0f) {
+            toonRigidBody.AddForce(Vector3.down * snapForce * Time.deltaTime);
         }
     }
 
